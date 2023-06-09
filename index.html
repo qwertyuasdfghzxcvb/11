@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Frozen</title>
+<title>Only Frozen</title>
 <link rel="stylesheet" href="css/odometer-theme-default.css" />
 <script src="js/odometer.min.js"></script>
 <style>
@@ -22,49 +22,108 @@
     font-family: proxima-nova, "Helvetica Neue", sans-serif;
 }
 
-.odometer{
-	top: 40%;
-    font-size: 400%;
-    font-family: proxima-nova, "Helvetica Neue", sans-serif;
+.odometer_d,.odometer_h,.odometer_m,.odometer_s,.odometer_desc{
+
+    text-align: center;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    line-height: 1.1em;
+    transform: translateZ(0px);
+    display:inline-block;
+    vertical-align:middle;
+    margin:auto;
+    top: 40%;
+    font-size: 300%;
+    font-family: "Helvetica Neue", sans-serif;
 }
+
+/*#odometer_d{
+    position: relative;
+
+}*/
+
+
 </style>
 </head>
 
 <body>
-<div class="number-container"><div id="odometer" class="odometer"></div><div>
+<div class="number-container">
+    <div id="odometer" class="odometer_d"></div>
+    <div id="odometer" class="odometer_desc"> 天 </div>
+    <div id="odometer" class="odometer_h"></div>
+    <div id="odometer" class="odometer_desc"> 时 </div>
+    <div id="odometer" class="odometer_m"></div>
+    <div id="odometer" class="odometer_desc"> 分 </div>
+    <div id="odometer" class="odometer_s"></div>
+    <div id="odometer" class="odometer_desc"> 秒 </div>
+<div>
 <script>
-	
-	
-	//var num = System.currentTimeMillis() % 10;
-	//document.querySelector('.odometer_test').innerhtml = num;
-	var d1 = new Date('2020/01/28 00:00:00');
-	var d2 = new Date();
-	
-	var el = document.querySelector('.odometer');
-	
-	od = new Odometer({
-	  el: el,
-	  value: parseInt(d2 - d1) / 1000 / 60 / 60 / 24 ,
-	  duration: 1000,
-	  format: '(ddd).dd'
-	});
-	
-	setInterval(function(){
-		var d1 = new Date('2020/01/28 00:00:00');
-		var d2 = new Date();
-	    var year = now.getFullYear(); //获取完整的年份(4位,1970-????)
-	    var month = now.getMonth() + 1; //获取当前月份(0-11,0代表1月)
-	    var today = now.getDate(); //获取当前日(1-31)
-	    var hour = now.getHours(); //获取当前小时数(0-23)
-	    var minute = now.getMinutes(); //获取当前分钟数(0-59)
-	    var second = now.getSeconds(); //获取当前秒数(0-59)
-		od.update(parseInt(parseInt(d2 - d1) / 1000 / 60 / 60 / 24))
-	}, 1000);
-	
+
+
+    //var num = System.currentTimeMillis() % 10;
+    var d1 = new Date('2020/01/28 00:00:00');
+    var d2 = new Date();
+    var year = d2.getFullYear(); //获取完整的年份(4位,1970-????)
+    var month = d2.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+    var today = d2.getDate(); //获取当前日(1-31)
+    var hour = d2.getHours(); //获取当前小时数(0-23)
+    var minute = d2.getMinutes(); //获取当前分钟数(0-59)
+    var second = d2.getSeconds(); //获取当前秒数(0-59)
+
+    var el_d = document.querySelector('.odometer_d');
+    var el_h = document.querySelector('.odometer_h');
+    var el_m = document.querySelector('.odometer_m');
+    var el_s = document.querySelector('.odometer_s');
+
+    od_d = new Odometer({
+      el: el_d,
+      value: parseInt(parseInt(d2 - d1) / 1000 / 60 / 60 / 24) ,
+      format: '(ddd)'
+    });
+
+    od_h = new Odometer({
+      el: el_h,
+      value: hour ,
+      format: 'd'
+    });
+
+    od_m = new Odometer({
+      el: el_m,
+      value: minute ,
+      format: 'd'
+    });
+
+    od_s = new Odometer({
+      el: el_s,
+      value: second ,
+      format: 'dd'
+    });
+
+
+    setInterval(function(){
+        var d1 = new Date('2020/01/28 00:00:00');
+        var d2 = new Date();
+        var year = d2.getFullYear(); //获取完整的年份(4位,1970-????)
+        var month = d2.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+        var today = d2.getDate(); //获取当前日(1-31)
+        var hour = d2.getHours(); //获取当前小时数(0-23)
+        var minute = d2.getMinutes(); //获取当前分钟数(0-59)
+        var second = d2.getSeconds(); //获取当前秒数(0-59)
+        od_d.update(parseInt(parseInt(d2 - d1) / 1000 / 60 / 60 / 24))
+        od_h.update(hour)
+        od_m.update(minute)
+        od_s.update(second)
+    }, 1000);
+
 </script>
-	
+
 </body>
- 
+
 </html>
 
 
