@@ -55,8 +55,8 @@
 		console.log(parseInt(d2 - d1));//两个时间相差的毫秒数
 		console.log(parseInt(d2 - d1) / 1000);//两个时间相差的秒数
 		console.log(parseInt(d2 - d1) / 1000 / 60);//两个时间相差的分钟数
-		console.log(parseInt(d2 - d1) / 1000 / 60);//两个时间相差的小时数
-		od.update(parseInt(d2 - d1) / 1000 / 60 / 24)
+		console.log(parseInt(d2 - d1) / 1000 / 60 / 60);//两个时间相差的小时数
+		od.update(parseInt(d2 - d1) / 1000 / 60 / 60 / 24)
 	}, 1000);
 	
 </script>
