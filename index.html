@@ -44,7 +44,7 @@
 	
 	od = new Odometer({
 	  el: el,
-	  value: parseInt(d2 - d1) / 1000 / 60 / 24 ,
+	  value: parseInt(d2 - d1) / 1000 / 60 / 60 / 24 ,
 	  duration: 1000,
 	  format: '(ddd).dd'
 	});
@@ -52,11 +52,13 @@
 	setInterval(function(){
 		var d1 = new Date('2020/01/28 00:00:00');
 		var d2 = new Date();
-		console.log(parseInt(d2 - d1));//两个时间相差的毫秒数
-		console.log(parseInt(d2 - d1) / 1000);//两个时间相差的秒数
-		console.log(parseInt(d2 - d1) / 1000 / 60);//两个时间相差的分钟数
-		console.log(parseInt(d2 - d1) / 1000 / 60 / 60);//两个时间相差的小时数
-		od.update(parseInt(d2 - d1) / 1000 / 60 / 60 / 24)
+	    var year = now.getFullYear(); //获取完整的年份(4位,1970-????)
+	    var month = now.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+	    var today = now.getDate(); //获取当前日(1-31)
+	    var hour = now.getHours(); //获取当前小时数(0-23)
+	    var minute = now.getMinutes(); //获取当前分钟数(0-59)
+	    var second = now.getSeconds(); //获取当前秒数(0-59)
+		od.update(parseInt(parseInt(d2 - d1) / 1000 / 60 / 60 / 24))
 	}, 1000);
 	
 </script>
