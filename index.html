@@ -44,7 +44,7 @@
 	
 	od = new Odometer({
 	  el: el,
-	  value: parseInt(d2 - d1) / 1000 / 60 ,
+	  value: parseInt(d2 - d1) / 1000 / 60 / 24 ,
 	  duration: 1000,
 	  format: '(ddd).dd'
 	});
@@ -56,7 +56,7 @@
 		console.log(parseInt(d2 - d1) / 1000);//两个时间相差的秒数
 		console.log(parseInt(d2 - d1) / 1000 / 60);//两个时间相差的分钟数
 		console.log(parseInt(d2 - d1) / 1000 / 60);//两个时间相差的小时数
-		od.update(parseInt(d2 - d1) / 1000 / 60)
+		od.update(parseInt(d2 - d1) / 1000 / 60 / 24)
 	}, 1000);
 	
 </script>
