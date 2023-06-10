@@ -1,71 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Only Frozen</title>
-<link rel="stylesheet" href="css/odometer-theme-default.css" />
-<script src="js/odometer.min.js"></script>
-<style>
-.number-container{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform: translateZ(0px);
-    margin: auto;
-    color: rgb(68, 68, 68);
-    background: rgb(238, 238, 238);
-    font-family: proxima-nova, "Helvetica Neue", sans-serif;
-}
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <title>Only Frozen</title>
+    <link rel="stylesheet" href="css/odometer-theme-default.css"/>
+    <script src="js/odometer.min.js"></script>
+    <style>
+        .number-container{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transform: translateZ(0px);
+            margin: auto;
+            color: rgb(68, 68, 68);
+            background: rgb(238, 238, 238);
+            font-family: proxima-nova, "Helvetica Neue", sans-serif;
+        }
 
-.odometer_d,.odometer_h,.odometer_m,.odometer_s,.odometer_desc{
+        .odometer_d,.odometer_h,.odometer_m,.odometer_s,.odometer_desc{
 
-    text-align: center;
-    display: block;
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    line-height: 1.1em;
-    transform: translateZ(0px);
-    display:inline-block;
-    vertical-align:middle;
-    margin:auto;
-    top: 40%;
-    font-size: 300%;
-    font-family: "Helvetica Neue", sans-serif;
-}
+            text-align: center;
+            display: block;
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            line-height: 1.1em;
+            transform: translateZ(0px);
+            display:inline-block;
+            vertical-align:middle;
+            margin:auto;
+            top: 40%;
+            font-size: 50%;
+            font-family: "Helvetica Neue", sans-serif;
+        }
 
-/*#odometer_d{
-    position: relative;
+    </style>
+    <script>
+        (function(doc, win) {
+          var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if(!clientWidth) return;
+            if(clientWidth >= 750) {
+              docEl.style.fontSize = '100px';
+            } else {
+              docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+          };
+          if(!doc.addEventListener) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
 
-}*/
-
-
-</style>
+    </script>
 </head>
 
 <body>
-<div class="number-container">
-    <div id="odometer" class="odometer_d"></div>
-    <div id="odometer" class="odometer_desc"> 天 </div>
-    <div id="odometer" class="odometer_h"></div>
-    <div id="odometer" class="odometer_desc"> 时 </div>
-    <div id="odometer" class="odometer_m"></div>
-    <div id="odometer" class="odometer_desc"> 分 </div>
-    <div id="odometer" class="odometer_s"></div>
-    <div id="odometer" class="odometer_desc"> 秒 </div>
-<div>
-<script>
+    <div class="number-container">
+        <div id="odometer_d" class="odometer_d"></div>
+        <div id="odometer_desc_d" class="odometer_desc"> 天</div>
+        <div id="odometer_h" class="odometer_h"></div>
+        <div id="odometer_desc_h" class="odometer_desc"> 时</div>
+        <div id="odometer_m" class="odometer_m"></div>
+        <div id="odometer_desc_m" class="odometer_desc"> 分</div>
+        <div id="odometer_s" class="odometer_s"></div>
+        <div id="odometer_desc_s" class="odometer_desc"> 秒</div>
+    </div>
+    <script>
 
-
-    //var num = System.currentTimeMillis() % 10;
     var d1 = new Date('2020/01/28 00:00:00');
     var d2 = new Date();
     var year = d2.getFullYear(); //获取完整的年份(4位,1970-????)
@@ -120,7 +133,9 @@
         od_s.update(second)
     }, 1000);
 
-</script>
+
+
+    </script>
 
 </body>
 
