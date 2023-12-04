@@ -19,11 +19,11 @@
 **定制：**
 **1. 主页 index.html**
 
-自行替换title和纪念时间即可
+自行替换title和纪念时间即可，如果需要调整计时器的样式，可以看看[https://linbingfeng.gitee.io/lovetimer/odometer.html](https://linbingfeng.gitee.io/lovetimer/odometer.html)，里面有介绍的样式的种类，以及介绍如何配置。
 
 **2. odometer.html**
 
-无需替换，依赖的库文件
+无需替换，依赖的css文件的使用说明。
 
 ## 三：项目部署
 
@@ -33,7 +33,7 @@
 
 1. 新建一个仓库
 2. 把代码放到你的仓库中去
-3. 在仓库`服务`里面更改gitees Pages中的source为master branch
+3. 在仓库服务里面更改gitees Pages中的source为master branch
 ![效果图](/pic/giteespages.jpg)
 项目的主页默认是index.html，项目后面就不用加上文件名了
 如果是别的名字，项目后面需要加上别的名字。
