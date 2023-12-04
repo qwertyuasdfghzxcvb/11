@@ -1,11 +1,21 @@
-# LoveTimer
+# LoveTimer - 一万年太久，我们只争朝夕。铭记相遇的每一分每一秒，少一点都不行。
 
- >纪念日计时网站
+ >曾经有一份真挚的爱情摆在我面前
+ >我没有珍惜
+ >假如上天再给我一次机会的话
+ >我愿意对她说
+ >我爱你
+ >假如非要给这份爱情加上一个期限的话
+ >我希望是一万年
 
-@[TOC](目录)
+[TOC](目录)
 
 ## 一：项目展示
+
 项目效果：
+
+一个恋爱、结婚等纪念日计时器网站。
+
 ![效果图](/pic/lovetimer.png)
 在线演示：
 [https://linbingfeng.gitee.io/lovetimer/](https://linbingfeng.gitee.io/lovetimer/)
